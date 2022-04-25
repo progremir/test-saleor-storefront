@@ -1,8 +1,18 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
-export default MyApp
+import '../styles/globals.css'
+
+const client = new ApolloClient({
+  uri: "https://tutorial.saleor.cloud/graphql/",
+  cache: new InMemoryCache(),
+});
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ApolloProvider client={client}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  )
+}
