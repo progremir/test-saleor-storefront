@@ -1,0 +1,13 @@
+mutation RemoveProductFromCheckout($checkoutToken: UUID!, $lineId: ID!) {
+  checkoutLineDelete(
+    token: $checkoutToken
+    lineId: $lineId
+  ) {
+    checkout {
+      ...CheckoutFragment
+    }
+    errors {
+      message
+    }
+  }
+}
