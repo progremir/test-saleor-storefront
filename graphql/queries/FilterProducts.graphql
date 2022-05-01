@@ -20,6 +20,20 @@ query FilterProducts(
         category {
           name
         }
+        pricing {
+          priceRange {
+            start {
+              gross {
+                amount
+              }
+            }
+            stop {
+              gross {
+                amount
+              }
+            }
+          }
+        }
       }
     }
     pageInfo {
